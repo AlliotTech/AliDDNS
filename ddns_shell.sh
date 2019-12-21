@@ -1,9 +1,10 @@
 #!/bin/sh
 
 ## ----- Setting -----
-AccessKeyId="AccessKeyId"
-AccessKeySec="AccessKeyId"
-DomainRecordId="RecordId"
+# https://ram.console.aliyun.com/ 新建子账号，分配 "管理HTTPDNS的权限"，"管理云解析（DNS）的权限"
+AccessKeyId="AccessKeyId" # 账号的 AccessKeyId
+AccessKeySec="AccessKeyId" # 账号的  AccessKeySec
+DomainRecordId="RecordId" # 子域名的 DomainRecordId，获取方法见 main 函数。
 # DomainRR, use "@" to set top level domain
 DomainRR="@"
 DomainName="域名"
@@ -252,8 +253,8 @@ update_record()
 
 main()
 {
-    #describe_record
-    update_record
+    #describe_record  # 获取 DomainRecordId
+    update_record     # 更新 DNS 记录
 
 }
 
